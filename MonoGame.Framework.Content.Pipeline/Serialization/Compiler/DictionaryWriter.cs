@@ -17,7 +17,7 @@ namespace Microsoft.Xna.Framework.Content.Pipeline.Serialization.Compiler
         ContentTypeWriter _valueWriter;
 
         /// <inheritdoc/>
-        internal override void OnAddedToContentWriter(ContentWriter output)
+        protected override void OnAddedToContentWriter(ContentWriter output)
         {
             base.OnAddedToContentWriter(output);
 

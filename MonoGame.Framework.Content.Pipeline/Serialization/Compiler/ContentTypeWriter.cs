@@ -73,11 +73,16 @@ namespace Microsoft.Xna.Framework.Content.Pipeline.Serialization.Compiler
 
         }
 
+        internal void RaiseOnAddedToContentWriter(ContentWriter writer)
+        {
+            OnAddedToContentWriter(writer);
+        }
+
         /// <summary>
         /// Allows type writers to add their element type writers to the content writer.
         /// </summary>
         /// <param name="writer">The content writer.</param>
-        internal virtual void OnAddedToContentWriter(ContentWriter writer)
+        protected virtual void OnAddedToContentWriter(ContentWriter writer)
         {
 
         }
