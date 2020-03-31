@@ -2,6 +2,7 @@
 // This file is subject to the terms and conditions defined in
 // file 'LICENSE.txt', which is part of this source code package.
 
+using MonoGame.Utilities;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -281,10 +282,7 @@ namespace Microsoft.Xna.Framework.Content.Pipeline.Serialization.Intermediate
                 return (foundType == null) ? null : foundType.MakeGenericType(genericArguments);
             }
 
-            foundType = (from assembly in AppDomain.CurrentDomain.GetAssemblies()
-                         from type in assembly.GetTypes()
-                         where type.FullName == typeName || type.Name == typeName
-                         select type).FirstOrDefault();
+            foundType = AssemblyHelper.GetAppDomainTypes(type => type.FullName == typeName || type.Name == typeName).FirstOrDefault();
 
             if (foundType == null)
                 foundType = Type.GetType(expandedName, false, true);

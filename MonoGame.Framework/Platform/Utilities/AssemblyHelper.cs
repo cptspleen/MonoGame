@@ -3,6 +3,7 @@
 // file 'LICENSE.txt', which is part of this source code package.
 
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 
 namespace MonoGame.Utilities
@@ -36,6 +37,31 @@ namespace MonoGame.Utilities
             }
 
             return windowTitle;
+        }
+
+        public static IEnumerable<Type> GetAppDomainTypes(Func<Type, bool> filterType)
+        {
+            var types = new List<Type>();
+
+            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
+            {
+                try
+                {
+                    foreach (var type in assembly.GetTypes())
+                    {
+                        if (filterType(type))
+                        {
+                            types.Add(type);
+                        }
+                    }
+                }
+                catch (ReflectionTypeLoadException)
+                {
+                    // Do nothing, effectively skip trying to load types from this assembly.
+                }
+            }
+
+            return types;
         }
     }
 }
