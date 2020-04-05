@@ -87,6 +87,11 @@ namespace Microsoft.Xna.Framework.Content.Pipeline.Serialization.Compiler
 
         }
 
+        protected void AddTypeWriter(ContentWriter writer, Type type)
+        {
+            writer.GetTypeWriter(type);
+        }
+
         /// <summary>
         /// Indicates whether a given type of content should be compressed.
         /// </summary>
