@@ -3,6 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Description>The unit tests for the MonoGame framework.</Description>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <IsPackable>false</IsPackable>
     <GenerateProgramFile>false</GenerateProgramFile>
@@ -33,6 +34,12 @@
   <ItemGroup>
     <Content Include="../../Tests/Assets/**/*" CopyToOutputDirectory="PreserveNewest">
       <Link>Assets/%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </Content>
+    <Content Include="../../MonoGame.Framework/Platform/Graphics/Effect/Resources/*.fx" CopyToOutputDirectory="PreserveNewest">
+      <Link>Assets/Effects/Stock/%(Filename)%(Extension)</Link>
+    </Content>
+    <Content Include="../../MonoGame.Framework/Platform/Graphics/Effect/Resources/*.fxh" CopyToOutputDirectory="PreserveNewest">
+      <Link>Assets/Effects/Stock/%(Filename)%(Extension)</Link>
     </Content>
   </ItemGroup>
 

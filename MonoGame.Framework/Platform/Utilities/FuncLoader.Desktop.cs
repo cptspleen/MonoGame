@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using System.Runtime.InteropServices;
 
-namespace MonoGame.Utilities
+namespace MonoGame.Framework.Utilities
 {
     internal class FuncLoader
     {
@@ -61,7 +61,11 @@ namespace MonoGame.Utilities
             if (ret == IntPtr.Zero)
                 ret = LoadLibrary(Path.Combine(assemblyLocation, "runtimes", CurrentPlatform.Rid, "native", libname));
 
-            // Try current folder (.NET Core will copy it there after publish) or system library
+            // Try current folder (.NET Core will copy it there after publish)
+            if (ret == IntPtr.Zero)
+                ret = LoadLibrary(Path.Combine(assemblyLocation, libname));
+
+            // Try loading system library
             if (ret == IntPtr.Zero)
                 ret = LoadLibrary(libname);
 

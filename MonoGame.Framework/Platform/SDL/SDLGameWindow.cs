@@ -7,7 +7,7 @@ using System.IO;
 using System.Reflection;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using MonoGame.Utilities;
+using MonoGame.Framework.Utilities;
 
 namespace Microsoft.Xna.Framework
 {
@@ -129,7 +129,7 @@ namespace Microsoft.Xna.Framework
 
             _handle = Sdl.Window.Create("", 0, 0,
                 GraphicsDeviceManager.DefaultBackBufferWidth, GraphicsDeviceManager.DefaultBackBufferHeight,
-                Sdl.Window.State.Hidden);
+                Sdl.Window.State.Hidden | Sdl.Window.State.FullscreenDesktop);
         }
 
         internal void CreateWindow()

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
-using MonoGame.Utilities;
+using MonoGame.Framework.Utilities;
 using Microsoft.Xna.Framework.Graphics;
 using System.Globalization;
 
@@ -52,6 +52,7 @@ namespace Microsoft.Xna.Framework.Content
             'O', // XboxOne
             'S', // Nintendo Switch
             'G', // Google Stadia
+            'b', // WebAssembly and Bridge.NET
 
             // NOTE: There are additional idenfiers for consoles that 
             // are not defined in this repository.  Be sure to ask the
