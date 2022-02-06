@@ -268,7 +268,7 @@ namespace Microsoft.Xna.Framework.Content.Pipeline.Serialization.Compiler
 
                 typeMap.Add(type, typeWriter);
 
-                typeWriter.OnAddedToContentWriter(this);
+                typeWriter.RaiseOnAddedToContentWriter(this);
             }
             return typeWriter;
         }
